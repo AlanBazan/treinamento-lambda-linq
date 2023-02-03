@@ -9,9 +9,10 @@ namespace Delegates
 {
     public class Calculadora
     {
-        public double Resultado { get; private set; }
+        private double resultadoAcumulado;
+        private double valorOperacao;
 
-        public double valor;
+        private OperacaoMatematica? operacao;
 
         public void SetValor(double valor)
         {
@@ -28,9 +29,9 @@ namespace Delegates
 
         }
 
-        public void EfetuarOperacao()
+        public double EfetuarOperacao()
         {
-
+            throw new NotImplementedException();
         }
 
     }
