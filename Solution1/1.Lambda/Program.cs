@@ -7,7 +7,8 @@ namespace _1.Lambda
         static void Main(string[] args)
         {
             var func = Join;
-            // (textoA, textoB) => $"{textoA} {textoB}"
+
+            var result = func("textoA", "TextoB");
 
             Console.WriteLine(func("Hello", "World"));
 
@@ -15,6 +16,7 @@ namespace _1.Lambda
 
         static string Join(string textoA, string textoB)
         {
+            textoA += ",";
             return $"{textoA} {textoB}";
         }
     }

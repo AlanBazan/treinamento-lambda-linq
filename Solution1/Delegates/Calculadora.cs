@@ -9,29 +9,46 @@ namespace Delegates
 {
     public class Calculadora
     {
-        private double resultadoAcumulado;
-        private double valorOperacao;
+        private double numeroA;
+        private double numeroB;
+
+        //numeroA + numeroB = reuslt
 
         private OperacaoMatematica? operacao;
 
         public void SetValor(double valor)
         {
-
+            if (operacao == null)
+                numeroA = valor;
+            else
+                numeroB = valor;
         }
 
         public void Somar()
         {
-
+            operacao = (a, b) => a + b;
         }
 
         public void Subtrair()
         {
-
+            operacao = (a, b) => a - b;
         }
 
         public double EfetuarOperacao()
         {
-            throw new NotImplementedException();
+            if (operacao == null)
+                return numeroA;
+
+            var resultado = operacao(numeroA, numeroB);
+
+            numeroA = resultado;
+
+            operacao = null;
+            numeroA = 0;
+            numeroB = 0;
+
+            return resultado;
+
         }
 
     }
